@@ -9,9 +9,14 @@ class Agence extends Model
 {
     use HasFactory;
 
-     protected $fillable = ['adresse', 'nom', 'telephone'];
+      protected $fillable = [
+        'ville',
+        'quartier',
+        'nom',
+    ];
+
     public function utilisateurs()
     {
-        return this->hasMany(Utilisateur::class);
+        return $this->hasMany(Utilisateur::class);
     }
 }

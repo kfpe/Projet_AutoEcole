@@ -6,20 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+
+ 
+
+
+
+
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('formations', function (Blueprint $table){
-        $table->id();
-    $table->string('Categorie');
-    $table->double('Prix');
-    $table->string('Durée');
-    $table->string('type');
-    $table->string('mode');
-    $table->timestamps();
-});
+        Schema::create('quizzes', function (Blueprint $table) {
+           $table->id();
+            $table->string('titre');
+            $table->string('description', 255)->nullable();
+            $table->foreignId('cours_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
+    });
+
 
     }
 
@@ -28,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-         Schema::dropIfExists('formations');
+         Schema::dropIfExists('quiz');
     }
 };

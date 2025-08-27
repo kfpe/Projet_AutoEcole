@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('secretaires', function (Blueprint $table) {
             $table->id();
             $table->foreignId('utilisateur_id')->constrained('utilisateurs')->onDelete('cascade');
-            $table->decimal('salaire');// a chercher
-            $table->string('cv');
+            $table->decimal('salaire')->nullable();// a chercher
+            $table->string('cv')->nullable();
             $table->timestamps();
         });
     }

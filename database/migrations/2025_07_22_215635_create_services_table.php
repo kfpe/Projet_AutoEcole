@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('numPermis');
+            $table->string('libelle', 100);
+            $table->string('description', 255)->nullable();
+            $table->enum('etat', ['en_attente', 'termine', 'en cour']);
             $table->foreignId('visiteur_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

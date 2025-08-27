@@ -8,11 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class Formation extends Model
 {
     use HasFactory;
-     protected $fillable = ['Categorie', 'Prix', 'Durée', 'type', 'mode'];
-
-    public function candidats(){
+     
     
-        returnthis->hasMany(Candidat::class);
+ protected $fillable = [
+        'categorie',
+        'type',
+        'mode',
+        'prix',
+        'duree',
+    ];
+
+    public function candidats()
+    {
+        return $this->hasMany(Candidat::class);
     }
 
+    public function cours()
+    {
+        return $this->hasMany(Cours::class);
+    }
 }

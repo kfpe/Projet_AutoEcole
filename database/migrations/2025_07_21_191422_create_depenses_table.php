@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('libelle');
             $table->string('justificatif_dep');
             $table->decimal('montant', 8, 2);
-            $table->date('date');
             $table->foreignId('secretaire_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

@@ -10,6 +10,6 @@ class Assister extends Model
     use HasFactory;
      protected $table = 'assister';
 
-    protected $fillable = ['candidat_id', 'seance_id', 'presence'];
+    protected $fillable = ['candidat_id', 'seance_id', 'presence', 'etat'];
 
 }

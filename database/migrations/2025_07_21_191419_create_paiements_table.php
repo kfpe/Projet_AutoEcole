@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('motif');
              $table->decimal('montant', 8, 2);
-            $table->date('date');
             $table->foreignId('candidat_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

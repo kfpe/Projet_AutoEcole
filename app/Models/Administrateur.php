@@ -8,11 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Administrateur extends Model
 {
     use HasFactory;
-    protected $fillable = ['utilisateur_id'];
+    protected $fillable = [
+        'utilisateur_id',
+    ];
 
-    public function utilisateur(){
-    
-        returnthis->belongsTo(Utilisateur::class);
+    public function utilisateur()
+    {
+        return $this->belongsTo(Utilisateur::class);
     }
 
+    public function contenus()
+    {
+        return $this->hasMany(Contenu::class);
+    }
 }

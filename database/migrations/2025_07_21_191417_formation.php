@@ -6,26 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-
- 
-
-
-
-
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('quizzes', function (Blueprint $table) {
+        Schema::create('formations', function (Blueprint $table){
             $table->id();
-            $table->integer('NbQuestion');
-            $table->string('question');
-            $table->string('reponseJuste');
-            $table->foreignId('cours_id')->constrained('cours')->onDelete('cascade');
+            $table->enum('categorie', ['A', 'B', 'C', 'D', 'E', 'FB', 'G', 'T', 'FA']);
+            $table->enum('type', ['VIP', 'Standard']);
+            $table->enum('mode', ['accelere', 'normal']);
+            $table->double('prix');
+            $table->string('duree', 10);
             $table->timestamps();
-    });
-
+});
 
     }
 
@@ -34,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-         Schema::dropIfExists('quizzes');
+         Schema::dropIfExists('formations');
     }
 };

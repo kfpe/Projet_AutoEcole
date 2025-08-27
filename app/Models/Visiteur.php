@@ -8,14 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Visiteur extends Model
 {
     use HasFactory;
-     protected $fillable = ['utilisateur_id'];
-     public function utilisateur(){
+    protected $fillable = ['num_permis', 'utilisateur_id'];
+
+    public function utilisateur(){
     
         returnthis->belongsTo(Utilisateur::class);
     }
-    public function service(){
-    
-        returnthis->hasMany(service::class);
+
+    public function services()
+    {
+        return $this->hasMany(Service::class);
     }
+
+    
 
 }

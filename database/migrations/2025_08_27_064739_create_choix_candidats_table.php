@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('moniteurs', function (Blueprint $table) {
-           $table->id();
-            $table->double('salaire')->nullable();
-            $table->string('categorie_permis', 50)->nullable();
-            $table->string('cv')->nullable();
-            $table->foreignId('utilisateur_id')->constrained('utilisateurs')->cascadeOnDelete();
+        Schema::create('choix_candidats', function (Blueprint $table) {
+            $table->id();
+           $table->unsignedBigInteger('reponse_id');
+            $table->foreignId('utilisateur_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('moniteurs');
+        Schema::dropIfExists('choix_candidats');
     }
 };

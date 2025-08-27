@@ -8,16 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 class Moniteur extends Model
 {
     use HasFactory;
-     protected $fillable = [
-    'utilisateur_id',
-    'categoris_permis',
-    'salaire',
-    'cv',
-];
+     
+    protected $fillable = [
+        'salaire',
+        'categorie_permis',
+        'cv',
+        'utilisateur_id',
+    ];
 
-    public function utilisateur(){
-    
-        returnthis->belongsTo(Utilisateur::class);
+    public function utilisateur()
+    {
+        return $this->belongsTo(Utilisateur::class);
+    }
+
+    public function seances()
+    {
+        return $this->hasMany(Seance::class);
+    }
+
+    public function contenus()
+    {
+        return $this->hasMany(Contenu::class);
     }
 
 }

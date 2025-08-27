@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('assisters', function (Blueprint $table) {
             $table->id();
+            $table->integer('presence')->default(0); // 1 = présent, 0 = absent
+            $table->enum('etat', ['fait', 'non_fait', 'en cour']);
             $table->foreignId('candidat_id')->constrained()->onDelete('cascade');
             $table->foreignId('seance_id')->constrained()->onDelete('cascade');
 

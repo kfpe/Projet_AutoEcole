@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('moniteurs', function (Blueprint $table) {
-           $table->id();
-            $table->double('salaire')->nullable();
-            $table->string('categorie_permis', 50)->nullable();
-            $table->string('cv')->nullable();
-            $table->foreignId('utilisateur_id')->constrained('utilisateurs')->cascadeOnDelete();
+        Schema::create('reponses', function (Blueprint $table) {
+            $table->id();
+            $table->integer('numero');
+            $table->string('reponse', 100);
+            $table->boolean('etat')->default(false); // 0 = Faux, 1 = Vrai
+            $table->foreignId('question_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('moniteurs');
+        Schema::dropIfExists('reponses');
     }
 };

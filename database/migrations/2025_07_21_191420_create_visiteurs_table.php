@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('visiteurs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('utilisateur_id')->constrained('utilisateurs')->onDelete('cascade');
+            $table->string('num_permis', 50)->nullable();
+            $table->foreignId('utilisateur_id')->constrained('utilisateurs')->cascadeOnDelete();
             $table->timestamps();
         });
     }

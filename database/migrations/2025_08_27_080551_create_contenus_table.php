@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('seances', function (Blueprint $table) {
-           $table->id();
-            $table->string('heure_debut', 10);
-            $table->string('heure_fin', 10);
-            $table->enum('etat', ['effectue', 'en_cours', 'non_effectue']);
+        Schema::create('contenus', function (Blueprint $table) {
+            $table->id();
+            $table->string('titre', 100);
+            $table->enum('type', ['pdf', 'video', 'audio']);
+            $table->string('lien', 100);
             $table->foreignId('cours_id')->constrained()->onDelete('cascade');
             $table->foreignId('moniteur_id')->constrained()->onDelete('cascade');
+            $table->foreignId('admin_id')->constrained('administrateurs')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('seances');
+        Schema::dropIfExists('contenus');
     }
 };

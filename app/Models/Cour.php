@@ -15,4 +15,18 @@ class Cour extends Model
         return this->hasMany(Quiz::class);
     }
 
+    public function formations(){
+    
+        return this->belongsTo(Formation::class);
+    }
+     public function seances()
+    {
+        return $this->hasMany(Seance::class);
+    }
+
+    public function contenus()
+    {
+        return $this->hasMany(Contenu::class);
+    }
+
 }

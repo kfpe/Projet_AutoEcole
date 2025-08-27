@@ -12,7 +12,6 @@ class Depense extends Model
     'libelle',
     'justificatif_dep',
     'montant',
-    'date',
     'secretaire_id'
 ];
 
