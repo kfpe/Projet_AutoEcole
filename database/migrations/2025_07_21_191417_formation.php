@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('formations', function (Blueprint $table){
             $table->id();
-            $table->enum('categorie', ['A', 'B', 'C', 'D', 'E', 'FB', 'G', 'T', 'FA']);
-            $table->enum('type', ['VIP', 'Standard']);
+            $table->enum('categories', ['A', 'B', 'C', 'D', 'E', 'FB', 'G', 'T', 'FA']);
+            $table->enum('type', ['vip', 'standard']);
             $table->enum('mode', ['accelere', 'normal']);
-            $table->double('prix');
+            $table->decimal('prix',10,2);
             $table->string('duree', 10);
             $table->timestamps();
 });

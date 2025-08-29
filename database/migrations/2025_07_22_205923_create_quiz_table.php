@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
 
- 
+
 
 
 
@@ -20,7 +20,7 @@ return new class extends Migration
         Schema::create('quizzes', function (Blueprint $table) {
            $table->id();
             $table->string('titre');
-            $table->string('description', 255)->nullable();
+            $table->text('description')->nullable();
             $table->foreignId('cours_id')->constrained()->onDelete('cascade');
             $table->timestamps();
     });

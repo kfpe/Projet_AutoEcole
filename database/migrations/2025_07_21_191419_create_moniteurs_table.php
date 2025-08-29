@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('moniteurs', function (Blueprint $table) {
            $table->id();
             $table->double('salaire')->nullable();
-            $table->string('categorie_permis', 50)->nullable();
+            $table->string('categorie_permis', 5)->nullable();
             $table->string('cv')->nullable();
             $table->foreignId('utilisateur_id')->constrained('utilisateurs')->cascadeOnDelete();
             $table->timestamps();

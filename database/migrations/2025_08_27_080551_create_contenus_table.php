@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('titre', 100);
             $table->enum('type', ['pdf', 'video', 'audio']);
-            $table->string('lien', 100);
+            $table->string('lien');
             $table->foreignId('cours_id')->constrained()->onDelete('cascade');
             $table->foreignId('moniteur_id')->constrained()->onDelete('cascade');
             $table->foreignId('admin_id')->constrained('administrateurs')->onDelete('cascade');
