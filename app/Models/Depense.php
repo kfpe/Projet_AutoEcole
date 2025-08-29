@@ -17,6 +17,6 @@ class Depense extends Model
 
     public function secretaire()
     {
-        return this->belongsTo(Secretaire::class);
-    } 
+        return $this->belongsTo(Secretaire::class);
+    }
 }

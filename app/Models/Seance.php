@@ -28,8 +28,8 @@ class Seance extends Model
 
      public function seances()
     {
-        return this->belongsToMany(Seance::class, 'assister')
-                    ->withPivot('presence')
+        return $this->belongsToMany(Seance::class, 'assister')
+                    ->withPivot('presence','etat')
                     ->withTimestamps();
     }
 

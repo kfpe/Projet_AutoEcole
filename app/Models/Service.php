@@ -12,8 +12,8 @@ class Service extends Model
 
 
     public function visiteur(){
-    
-        returnthis->belongsTo(Visiteur::class);
+
+        return $this->belongsTo(Visiteur::class);
     }
 
 }

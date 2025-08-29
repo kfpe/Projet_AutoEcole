@@ -18,11 +18,11 @@ class contenu extends Model
     'administrateur_id'
 ];
 
-    
-    
+
+
     public function cours()
     {
-        return $this->belongsTo(Cours::class);
+        return $this->belongsTo(Cour::class);
 
     }
 

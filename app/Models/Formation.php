@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Formation extends Model
 {
     use HasFactory;
-     
-    
+
+
  protected $fillable = [
         'categorie',
         'type',
@@ -25,6 +25,6 @@ class Formation extends Model
 
     public function cours()
     {
-        return $this->hasMany(Cours::class);
+        return $this->hasMany(Cour::class);
     }
 }

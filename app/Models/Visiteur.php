@@ -11,8 +11,8 @@ class Visiteur extends Model
     protected $fillable = ['num_permis', 'utilisateur_id'];
 
     public function utilisateur(){
-    
-        returnthis->belongsTo(Utilisateur::class);
+
+        return $this->belongsTo(Utilisateur::class);
     }
 
     public function services()
@@ -20,6 +20,6 @@ class Visiteur extends Model
         return $this->hasMany(Service::class);
     }
 
-    
+
 
 }

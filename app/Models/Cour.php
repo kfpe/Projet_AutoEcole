@@ -11,13 +11,13 @@ class Cour extends Model
      protected $fillable = ['type', 'intitule', 'formation_id'];
 
     public function quiz(){
-    
-        return this->hasMany(Quiz::class);
+
+        return $this->hasMany(Quiz::class);
     }
 
     public function formations(){
-    
-        return this->belongsTo(Formation::class);
+
+        return $this->belongsTo(Formation::class);
     }
      public function seances()
     {

@@ -13,11 +13,11 @@ class reponse extends Model
         'reponse',
         'etat',
         'question_id',
-        
+
     ];
     public function question(){
-    
-        returnthis->belongsTo(Question::class);
+
+        return $this->belongsTo(Question::class);
     }
 
    public function utilisateur()
