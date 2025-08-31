@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('assisters', function (Blueprint $table) {
-            $table->id();
+            $table->primary(['candidat_id','seance_id']);
             $table->boolean('presence')->default(0); // 1 = présent, 0 = absent
             $table->enum('etat', ['fait', 'non_fait', 'en cour']);
             $table->foreignId('candidat_id')->constrained()->onDelete('cascade');
