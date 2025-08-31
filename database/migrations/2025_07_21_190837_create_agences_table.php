@@ -15,6 +15,7 @@ return new class extends Migration
            $table->id();
             $table->string('ville', 60);
             $table->string('quartier', 80)->nullable();
+            $table->integer('numero');
             $table->string('nom', 100);
             $table->timestamps();
            
