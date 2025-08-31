@@ -18,7 +18,7 @@ class Seance extends Model
 
     public function cours()
     {
-        return $this->belongsTo(Cours::class);
+        return $this->belongsTo(Cour::class);
     }
 
     public function moniteur()
