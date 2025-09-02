@@ -18,7 +18,7 @@
    
 </head>
 <body>
-    @include('layout1.partials.navar')
+    @include('layout1.partials.navbar')
     
     <main class="py-4">
         

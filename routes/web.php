@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ServiceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,14 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layout1.app');
+    return view('layout1.home');
 });
 
 
 Route::get('/services', function () {
-    return view('services');
+    return view('layout1.services');
 })->name('services');
 
 Route::get('/askservice', function () {
-    return view('askservice');
+    return view('layout1.askservices');
 })->name('askservice');
+
+
+
+Route::post('/services/store', [ServiceController::class, 'store'])->name('services.store');
