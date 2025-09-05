@@ -1,0 +1,77 @@
+[33mcommit d4e54946ea9485a3cc26357cb5959716f17b1c5c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mkadji[m[33m)[m
+Author: Kadji-140 <philipdivink@gmail.com>
+Date:   Fri Sep 5 14:04:27 2025 +0100
+
+    my update1
+
+[33mcommit 1ad848e118717b4a70c190daed7a0e2501aef7da[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/developp[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Kadji-140 <philipdivink@gmail.com>
+Date:   Sun Aug 31 19:20:11 2025 +0100
+
+    second5
+
+[33mcommit 42f3068716c5a974c1225b0d084d25db075ec832[m
+Author: Kadji-140 <philipdivink@gmail.com>
+Date:   Sun Aug 31 19:00:40 2025 +0100
+
+    second6
+
+[33mcommit d0062ab8d7b2499edfa5ec3899688ebc667236af[m
+Author: Kadji-140 <philipdivink@gmail.com>
+Date:   Sun Aug 31 18:36:03 2025 +0100
+
+    second4
+
+[33mcommit 415e969c4151cdaff38cd3f02b9174d602c4e8e5[m
+Author: Kadji-140 <philipdivink@gmail.com>
+Date:   Sun Aug 31 18:26:31 2025 +0100
+
+    second5
+
+[33mcommit 4e4af2c37a2bf43f8a321a2785ea45a760b864da[m
+Author: patrick <patrick>
+Date:   Sun Aug 31 19:18:58 2025 +0200
+
+    structure du projet
+
+[33mcommit bdf0aa732f02738c48fbdf75badde113e36470cb[m
+Author: patrick <patrick>
+Date:   Sun Aug 31 19:07:28 2025 +0200
+
+    structure du projet
+
+[33mcommit 3bbcb42f267b1aa398744225d2029bf3d88ce539[m
+Author: Kadji-140 <philipdivink@gmail.com>
+Date:   Sun Aug 31 16:49:06 2025 +0100
+
+    second4
+
+[33mcommit a989d946fac2cf962a3172969a51fafc2134b645[m
+Author: Kadji-140 <philipdivink@gmail.com>
+Date:   Sun Aug 31 16:42:00 2025 +0100
+
+    second3
+
+[33mcommit 46804df47be3aa35c05029c7d3e6c4df4a23b7c4[m
+Author: Kadji-140 <philipdivink@gmail.com>
+Date:   Fri Aug 29 14:17:26 2025 +0100
+
+    mise a jour 3 de la bb
+
+[33mcommit 966ee7421d1dce95fbe818e29b5b5b7d2976155a[m
+Author: Kadji-140 <philipdivink@gmail.com>
+Date:   Fri Aug 29 12:24:30 2025 +0100
+
+    mise a jour 2 de la bb
+
+[33mcommit d4a1a534ecc620118f51a677a1d11ad4d6be7201[m
+Author: patrick <patrick>
+Date:   Wed Aug 27 16:00:36 2025 +0200
+
+    mise a jour de la base de donnee (migration et models)
+
+[33mcommit dad1420d6588d39f0afd67876869ebb3d49ca817[m
+Author: patrick <patrick>
+Date:   Wed Jul 23 01:13:43 2025 +0200
+
+    projet initial : creation des models
