@@ -19,3 +19,11 @@ Route::get('/', function () {
 Route::get('/base', function () {
     return view('base');
 });
+Route::get('/users', function(){
+    return view('users');
+});
+//Route::resource('/users', UserController::class);
+
+Route::get('/test', function(){
+    return view('layout3.candidat.index');
+});

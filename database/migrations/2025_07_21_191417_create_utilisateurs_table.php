@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('sexe', 15);
             $table->string('adresse');
             $table->string('email')->unique();
-            $table->string('telephone');
+            $table->integer('telephone');
             $table->string('mot_de_passe');
             $table->string('role');
             $table->foreignId('agence_id')->constrained()->onDelete('cascade');
