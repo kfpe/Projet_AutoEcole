@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginFormRequest;
+use App\Http\Requests\UserFormRequest;
+use App\Models\User;
 use App\Models\Utilisateur;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Return_;
 
 class UserController extends Controller
 {
@@ -14,7 +17,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        
+        return view('users.index',[
+            'users' => User::all()
+        ]);
     }
 
     /**
@@ -22,17 +27,19 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users');
+        return view('users.login');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(LoginFormRequest $request)
+    public function store(UserFormRequest $request)
     {
-        Utilisateur::create($request->validated());
+        $data= $request->validated();
+        $data['agence_id']= 1;
+        User::create($data);
 
-        return redirect()->route('index')->with('success', "Utilisateur enrefistrer avec success");
+        return redirect()->route('users.index')->with('success', "Utilisateur enrefistrer avec success");
         
     }
 

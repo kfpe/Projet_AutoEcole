@@ -27,7 +27,7 @@ class LoginFormRequest extends FormRequest
             'sexe' => 'required|string|max:15|in:masculin,féminin',
             'adresse' => 'required|string',
             'email' => 'required|email|unique:users,email',
-            'telephone' => 'required|string|max:20',
+            'telephone' => 'required|integer|max:20',
             'mot_de_passe' => 'required|string|min:8',
             'role' => 'required|string|in:admin,user,agent',
             'agence_id' => 'required|exists:agences,id'

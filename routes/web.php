@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,11 +20,26 @@ Route::get('/', function () {
 Route::get('/base', function () {
     return view('base');
 });
-Route::get('/users', function(){
-    return view('users');
-});
+
 //Route::resource('/users', UserController::class);
 
 Route::get('/test', function(){
     return view('layout3.candidat.index');
 });
+Route::get('/dashCand', function(){
+    return view('layout3/candidat/dashboard');
+});
+Route::get('/zzz', function(){
+    return view('zzzzz');
+});
+
+
+
+//--------------------------------------------- debut de project
+
+Route::resource('users', UserController::class);
+
+
+// Route::prefix('/users')->controller('UserContoller')->group(function(){
+    
+// });
