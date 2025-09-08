@@ -20,7 +20,7 @@ return new class extends Migration
             $table->enum('decision', ['admis', 'echec'])->nullable();
             $table->string('photo')->nullable();
             $table->enum('statut', ['solvable', 'insolvable']);
-            $table->foreignId('utilisateur_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('formation_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

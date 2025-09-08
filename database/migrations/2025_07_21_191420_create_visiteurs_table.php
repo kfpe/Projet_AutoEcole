@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('visiteurs', function (Blueprint $table) {
             $table->id();
             $table->string('num_permis', 50)->nullable();
-            $table->foreignId('utilisateur_id')->constrained('utilisateurs')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }

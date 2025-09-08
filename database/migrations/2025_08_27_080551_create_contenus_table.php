@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Cour;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,9 +17,9 @@ return new class extends Migration
             $table->string('titre', 100);
             $table->enum('type', ['pdf', 'video', 'audio']);
             $table->string('lien');
-            $table->foreignId('cours_id')->constrained()->onDelete('cascade');
+            $table->foreignIdFor(Cour::class)->constrained()->cascadeOnDelete();
             $table->foreignId('moniteur_id')->constrained()->onDelete('cascade');
-            $table->foreignId('admin_id')->constrained('administrateurs')->onDelete('cascade');
+            $table->foreignId('admin_id')->constrained('admins')->onDelete('cascade');
             $table->timestamps();
         });
     }

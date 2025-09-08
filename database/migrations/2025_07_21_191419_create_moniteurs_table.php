@@ -16,7 +16,7 @@ return new class extends Migration
             $table->double('salaire')->nullable();
             $table->string('categorie_permis', 5)->nullable();
             $table->string('cv')->nullable();
-            $table->foreignId('utilisateur_id')->constrained('utilisateurs')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }
