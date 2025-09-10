@@ -17,7 +17,8 @@ use App\Http\Controllers\ServiceController;
 Route::get('/', function () {
     return view('layout1.home');
 });
-<<<<<<< HEAD
+
+
 Route::get('/base', function () {
     return view('base');
 });
@@ -58,8 +59,6 @@ Route::resource('users', UserController::class);
 // Route::prefix('/users')->controller('UserContoller')->group(function(){
     
 // });
-=======
-
 
 Route::get('/services', function () {
     return view('layout1.services');
@@ -72,4 +71,7 @@ Route::get('/askservice', function () {
 
 
 Route::post('/services/store', [ServiceController::class, 'store'])->name('services.store');
->>>>>>> accueilPatrick
+
+
+
+
