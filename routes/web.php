@@ -21,23 +21,37 @@ Route::get('/base', function () {
     return view('base');
 });
 
-//Route::resource('/users', UserController::class);
-
-Route::get('/test', function(){
+/* --------- Routes de la branche main (HEAD) --------- */
+Route::get('/test', function () {
     return view('layout3.candidat.index');
 });
-Route::get('/dashCand', function(){
+Route::get('/dashCand', function () {
     return view('layout3/candidat/dashboard');
 });
-Route::get('/zzz', function(){
+Route::get('/zzz', function () {
     return view('zzzzz');
 });
 
+/* --------- Routes de la branche sandeu --------- */
+Route::get('/admin', function () {
+    return view('layout2/admin/admin');
+});
 
+Route::get('/moniteur', function () {
+    return view('layout3/moniteur/moniteur');
+});
 
-//--------------------------------------------- debut de project
+Route::get('/secretaire', function () {
+    return view('layout3/secretaire/secretaire');
+});
 
+Route::get('/login', function () {
+    return view('auth/login');
+});
+
+/* --------- Ressource users --------- */
 Route::resource('users', UserController::class);
+
 
 
 // Route::prefix('/users')->controller('UserContoller')->group(function(){
