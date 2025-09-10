@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin - Auto-École</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}"> {{-- ton CSS --}}
+    <link rel="stylesheet" href="{{ asset('css/dashboad.css') }}"> 
     </head>
 <body>
     <!-- Sidebar -->
@@ -249,6 +249,6 @@
             </div>
         </div>
     </div>
-     <script src="{{ asset('js/dashboard.js') }}"></script>
+    <script src="{{ asset('js/dashboard.js') }}"></script>
     </body>
 </html>

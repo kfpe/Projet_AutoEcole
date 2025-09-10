@@ -1,4 +1,4 @@
- document.querySelectorAll('.menu-link').forEach(link => {
+document.querySelectorAll('.menu-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 
