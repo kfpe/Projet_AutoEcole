@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ServiceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layout1.home');
 });
+<<<<<<< HEAD
 Route::get('/base', function () {
     return view('base');
 });
@@ -57,3 +58,18 @@ Route::resource('users', UserController::class);
 // Route::prefix('/users')->controller('UserContoller')->group(function(){
     
 // });
+=======
+
+
+Route::get('/services', function () {
+    return view('layout1.services');
+})->name('services');
+
+Route::get('/askservice', function () {
+    return view('layout1.askservices');
+})->name('askservice');
+
+
+
+Route::post('/services/store', [ServiceController::class, 'store'])->name('services.store');
+>>>>>>> accueilPatrick
