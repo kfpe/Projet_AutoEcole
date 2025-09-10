@@ -19,3 +19,8 @@ Route::get('/', function () {
 Route::get('/base', function () {
     return view('base');
 });
+
+Route::get('/dashboard', function () {
+    return view('admin');
+});
+
