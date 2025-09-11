@@ -49,7 +49,8 @@ Route::get('/secretaire', function () {
 
 Route::get('/login', function () {
     return view('auth/login');
-});
+ })->name('login');
+
 
 /* --------- Ressource users --------- */
 Route::resource('users', UserController::class);

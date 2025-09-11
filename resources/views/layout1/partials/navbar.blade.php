@@ -41,8 +41,8 @@
                     </ul>
                 </li>
             @else
-                <li><a href="">Connexion</a></li>
-                <li><a href="">Inscription</a></li>
+                <li><a href="{{ route('login') }}">Connexion</a></li>
+                <li><a href="{{ route('login') }}">Inscription</a></li>
             @endauth
         </ul>
     </div>
