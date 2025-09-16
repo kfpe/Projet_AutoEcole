@@ -33,6 +33,30 @@ Route::get('/zzz', function(){
     return view('zzzzz');
 });
 
+Route::get('/admin', function () {
+    return view('layout2/superAdmin/admin');
+})->name('admin');
+
+Route::get('/agence', function () {
+    return view('layout2/superAdmin/agence');
+})->name('agence');
+
+Route::get('/parametres', function () {
+    return view('home.parametres');
+})->name('parametres');
+
+Route::get('/welcome', function () {
+    return view('layout2/superAdmin/welcome');
+})->name('welcome');
+
+Route::get('/liste_agence', function () {
+    return view('layout2/superAdmin/liste_agence');
+})->name('liste_agence');
+
+Route::get('/liste_admin', function () {
+    return view('layout2/superAdmin/liste_admin');
+})->name('liste_admin');
+
 
 
 //--------------------------------------------- debut de project
