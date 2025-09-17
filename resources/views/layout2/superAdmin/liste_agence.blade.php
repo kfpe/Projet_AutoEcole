@@ -76,7 +76,7 @@ $result = $conn->query("SELECT id, nom, numero, ville,quartier, created_at
       <?= $message; ?>
 
       <div class="mb-3 text-end">
-        <a href="{{ route('welcome²') }}" class="btn btn-primary">Retour</a>
+        <a href="{{ route('welcome') }}" class="btn btn-primary">Retour</a>
         <a href="{{ route('agence') }}" class="btn btn-primary">➕ Ajouter une Agence</a>
       </div>
 
