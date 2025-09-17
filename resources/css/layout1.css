@@ -180,7 +180,21 @@ h2 {
     text-align: center;
     font-size: 2rem; /* Taille du titre */
     margin-bottom: 50px;
+    font-weight: bold;
     color: var(--primary-color);
+    
+}
+
+
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #0d6efd;
+    margin: 10px auto 0;
+    border-radius: 2px;
 }
 
 /* =========================
@@ -468,60 +482,109 @@ h2 {
 
 
 
-.hero-service {
-    position: relative; /* Pour positionner correctement l'arrière-plan */
-    padding: 100px 0;
-    overflow: hidden; /* Pour éviter le débordement */
+.hero-service { 
+    position: relative;
+    padding: 150px 20px;
+    overflow: hidden;
+    color: white;
+    text-align: center;
 }
 
 .background-slider {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background-size: cover;
     background-position: center;
-    animation: slide 10s infinite;
+    z-index: -2;
+    transition: background-image 1s ease-in-out;
+}
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    
     z-index: -1;
 }
 
-
-
-.service-card {
-    background-color: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent */
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+.hero-contents {
+    position: relative;
+    display: inline-block;
+    padding: 30px 40px;
+    background: rgba(1, 33, 77, 0.6); /* bleu foncé semi-transparent */
+    border-radius: 12px;
+    backdrop-filter: blur(4px); /* effet verre dépoli */
+    z-index: 1;
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
+.hero-contents h3 {
+    font-size: 2.8rem;
+    font-weight: bold;
 }
 
-h2 {
-    color: #002f6c;
-}
-
-.service-card {
-    background: white;
-    border-radius: 10px;
-    text-align: center;
-    padding: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-}
-
-.service-icon {
-    color: blue;
+.hero-contents p {
+    font-size: 1.2rem;
     margin-bottom: 15px;
 }
+
+.hero-contents .btn {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+}
+
+
+
+
+.services-section {
+  padding: 100px 0;
+}
+
+.services-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.services-list i {
+  font-size: 0.8rem;
+  margin-top: 6px;
+}
+
+.service-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #002f6c;
+  margin-bottom: 5px;
+}
+
+.service-desc {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Image flottante animée */
+.floating-img {
+  max-width: 90%;
+  border-radius: 15px;
+  
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+
+
 
 .contact-section {
     padding: 50px 0;
@@ -576,4 +639,31 @@ h2 {
     .hero-content h1 {
         font-size: 2rem;
     }
+}
+
+
+
+
+/* Filtre bleu par-dessus l'image */
+.section-inscription::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+   #00155A,   /* bleu intense */
+   #00155A   /* doré clair */
+  );
+  transition: opacity 1.9s ease;
+  z-index: 1;
+}
+
+/* Quand la section est visible -> filtre disparaît progressivement */
+.section-inscription.active::before {
+  opacity: 0.6; /* laisse voir l'image */
+}
+
+/* Contenu */
+.section-inscription .container {
+  position: relative;
+  z-index: 2;
 }

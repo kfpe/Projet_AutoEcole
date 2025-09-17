@@ -92,5 +92,16 @@ document.addEventListener("DOMContentLoaded", function() {
 })();
 
 
+  document.addEventListener("scroll", function () {
+    const section = document.getElementById("inscription");
+    const rect = section.getBoundingClientRect();
+
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      section.classList.add("active");
+    } else {
+      section.classList.remove("active");
+    }
+  });
+
 
 
