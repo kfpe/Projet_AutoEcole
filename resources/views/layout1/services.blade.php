@@ -100,21 +100,21 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="team-member">
-                    <img src="{{ asset('img/formateur1.jpg') }}" alt="Formateur 1" class="img-fluid rounded-circle">
+                    <img src="{{ asset('img/OIP (2).jpeg') }}" alt="Formateur 1" class="img-fluid rounded-circle" style="">
                     <h5>Jean Martin</h5>
                     <p>Formateur certifié avec 10 ans d'expérience.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="team-member">
-                    <img src="{{ asset('img/formateur2.jpg') }}" alt="Formateur 2" class="img-fluid rounded-circle">
+                    <img src="{{ asset('img/OIP (2).jpeg') }}" alt="Formateur 2" class="img-fluid rounded-circle">
                     <h5>Marie Dubois</h5>
                     <p>Spécialiste en formation pour conducteurs débutants.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="team-member">
-                    <img src="{{ asset('img/formateur3.jpg') }}" alt="Formateur 3" class="img-fluid rounded-circle">
+                    <img src="{{ asset('img/OIP (2).jpeg') }}" alt="Formateur 3" class="img-fluid rounded-circle">
                     <h5>Luc Moreau</h5>
                     <p>Expert en conduite défensive et sécurité routière.</p>
                 </div>

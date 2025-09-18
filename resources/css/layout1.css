@@ -229,7 +229,7 @@ h2::after {
 .hero-image img {
     max-width: 90%;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+   
     animation: fadeInRight 1s ease-in-out;
 }
 
@@ -583,6 +583,14 @@ h2::after {
   }
 }
 
+
+
+
+
+.team-member img {
+    width: 100px;  /* Ajustez la largeur selon vos besoins */
+    height: 100px; /* Ajustez la hauteur selon vos besoins */
+}
 
 
 

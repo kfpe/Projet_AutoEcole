@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="{{ asset('img/OIP1.webp') }}" alt="Auto-école">
+                <img src="{{ asset('img/OIP.jpeg') }}" alt="Auto-école">
             </div>
             
         </div>
@@ -101,7 +101,7 @@
             <div class="col-md-4">
               <div class="presentation-card">
                 <div class="presentation-image">
-                  <img src="{{ asset('img/OIP1.webp') }}" class="d-block w-100" alt="Formateurs qualifiés">
+                  <img src="{{ asset('img/th.jpeg') }}" class="d-block w-100" alt="Formateurs qualifiés">
                 </div>
                 <div class="presentation-content">
                   <p class="mt-3 fst-italic">"Formateurs qualifiés vous suivent pendant votre formation."</p>
@@ -117,7 +117,7 @@
             <div class="col-md-4">
               <div class="presentation-card">
                 <div class="presentation-image">
-                  <img src="{{ asset('img/OIP (1).jpeg') }}" class="d-block w-100" alt="Suivi personnalisé">
+                  <img src="{{ asset('img/OIP (4).webp') }}" class="d-block w-100" alt="Suivi personnalisé">
                 </div>
                 <div class="presentation-content">
                   <p class="mt-3 fst-italic">"Un suivi personnalisé pour garantir votre succès."</p>
@@ -133,7 +133,7 @@
             <div class="col-md-4">
               <div class="presentation-card">
                 <div class="presentation-image">
-                  <img src="{{ asset('img/OIP2.jpg') }}" class="d-block w-100" alt="Flexibilité">
+                  <img src="{{ asset('img/imm.jpeg') }}" class="d-block w-100" alt="Flexibilité">
                 </div>
                 <div class="presentation-content">
                   <p class="mt-3 fst-italic">"Des horaires flexibles pour s'adapter à votre emploi du temps."</p>
@@ -149,7 +149,7 @@
             <div class="col-md-4">
               <div class="presentation-card">
                 <div class="presentation-image">
-                  <img src="{{ asset('img/OIP3.jpg') }}" class="d-block w-100" alt="Formation interactive">
+                  <img src="{{ asset('img/IMG_20241230_143343.jpg') }}" class="d-block w-100" alt="Formation interactive">
                 </div>
                 <div class="presentation-content">
                   <p class="mt-3 fst-italic">"Des méthodes interactives pour un meilleur engagement."</p>
@@ -165,7 +165,7 @@
             <div class="col-md-4">
               <div class="presentation-card">
                 <div class="presentation-image">
-                  <img src="{{ asset('img/OIP4.jpg') }}" class="d-block w-100" alt="Sécurité">
+                  <img src="{{ asset('img/télécharger.webp') }}" class="d-block w-100" alt="Sécurité">
                 </div>
                 <div class="presentation-content">
                   <p class="mt-3 fst-italic">"Nous formons des conducteurs responsables et sécuritaires."</p>
@@ -181,7 +181,7 @@
             <div class="col-md-4">
               <div class="presentation-card">
                 <div class="presentation-image">
-                  <img src="{{ asset('img/OIP5.jpg') }}" class="d-block w-100" alt="Satisfaction client">
+                  <img src="{{ asset('img/satisf.jpg') }}" class="d-block w-100" alt="Satisfaction client">
                 </div>
                 <div class="presentation-content">
                   <p class="mt-3 fst-italic">"Un taux de satisfaction client exceptionnel."</p>
