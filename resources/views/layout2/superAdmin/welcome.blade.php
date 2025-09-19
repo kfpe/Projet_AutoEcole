@@ -35,7 +35,17 @@ $profileImg = "https://www.shutterstock.com/image-photo/photo-screaming-smiling-
       background-color: #f4f6f9;
       color: #333;
       overflow-x: hidden;
+      transition: background 0.3s, color 0.3s;
     }
+
+    /* Mode sombre */
+    body.dark-mode {
+      background-color: #1e1e1e;
+      color: #e4e4e4;
+    }
+    body.dark-mode .card { background: #2a2a2a; color: #fff; }
+    body.dark-mode .topbar { background: #2d2d2d; }
+    body.dark-mode .dropdown-menu { background: #2a2a2a; color: #fff; }
 
     /* Sidebar */
     .sidebar {
@@ -165,7 +175,7 @@ $profileImg = "https://www.shutterstock.com/image-photo/photo-screaming-smiling-
       <li><a href="#" class="nav-link active"><i class="bi bi-speedometer2 me-2"></i><span>Dashboard</span></a></li>
       <li><a href="{{ route('liste_agence') }}" class="nav-link"><i class="bi bi-building me-2"></i><span>Agences</span></a></li>
       <li><a href="{{ route('liste_admin') }}" class="nav-link"><i class="bi bi-person-gear me-2"></i><span>Administrateurs</span></a></li>
-      <li><a href="#" class="nav-link"><i class="bi bi-gear me-2"></i><span>Paramètres</span></a></li>
+      <li><a href="{{ route('parametres') }}" class="nav-link"><i class="bi bi-gear me-2"></i><span>Paramètres</span></a></li>
     </ul>
   </div>
 
@@ -228,22 +238,22 @@ $profileImg = "https://www.shutterstock.com/image-photo/photo-screaming-smiling-
       <div class="col-lg-6">
         <div class="card p-4 h-100">
           <h5 class="fw-bold text-success"><i class="bi bi-gear me-2"></i> Paramètres</h5>
-          <form class="mt-3">
+          <form class="mt-3" id="settings-form">
             <div class="mb-3">
               <label class="form-label fw-semibold">Langue</label>
-              <select class="form-select">
-                <option>Français</option>
-                <option>Anglais</option>
+              <select class="form-select" id="lang-select">
+                <option value="fr">Français</option>
+                <option value="en">Anglais</option>
               </select>
             </div>
             <div class="mb-3">
               <label class="form-label fw-semibold">Thème</label>
-              <select class="form-select">
-                <option>Clair</option>
-                <option>Sombre</option>
+              <select class="form-select" id="theme-select">
+                <option value="light">Clair</option>
+                <option value="dark">Sombre</option>
               </select>
             </div>
-            <button class="btn btn-success btn-sm"><i class="bi bi-check-circle me-1"></i> Sauvegarder</button>
+            <button type="submit" class="btn btn-success btn-sm"><i class="bi bi-check-circle me-1"></i> Sauvegarder</button>
           </form>
         </div>
       </div>
@@ -260,6 +270,44 @@ $profileImg = "https://www.shutterstock.com/image-photo/photo-screaming-smiling-
     toggleBtn.addEventListener("click", () => {
       sidebar.classList.toggle("collapsed");
       content.classList.toggle("expanded");
+    });
+
+    // --- Gestion Langue et Thème ---
+    const langSelect = document.getElementById("lang-select");
+    const themeSelect = document.getElementById("theme-select");
+    const settingsForm = document.getElementById("settings-form");
+
+    // Charger les préférences sauvegardées
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedLang = localStorage.getItem("lang") || "fr";
+      const savedTheme = localStorage.getItem("theme") || "light";
+
+      langSelect.value = savedLang;
+      themeSelect.value = savedTheme;
+
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    });
+
+    // Sauvegarder les préférences
+    settingsForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const lang = langSelect.value;
+      const theme = themeSelect.value;
+
+      // Sauvegarde locale
+      localStorage.setItem("lang", lang);
+      localStorage.setItem("theme", theme);
+
+      // Appliquer thème
+      if (theme === "dark") {
+        document.body.classList.add("dark-mode");
+      } else {
+        document.body.classList.remove("dark-mode");
+      }
+
+      alert("✅ Paramètres sauvegardés !");
     });
   </script>
 </body>

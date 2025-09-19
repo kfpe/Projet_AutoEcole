@@ -57,6 +57,9 @@ Route::get('/liste_admin', function () {
     return view('layout2/superAdmin/liste_admin');
 })->name('liste_admin');
 
+Route::get('/parametres', function () {
+    return view('layout2/superAdmin/parametres');
+})->name('parametres');
 
 
 //--------------------------------------------- debut de project
