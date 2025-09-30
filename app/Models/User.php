@@ -23,7 +23,7 @@ class User extends Authenticatable
     'sexe',
     'adresse',
     'email',
-    'telephone',
+    'tel',
     'password',
     'role',
     'agence_id',

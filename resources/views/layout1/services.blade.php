@@ -78,7 +78,7 @@
           </li>
         </ul>
         <div class="text-center">
-          <a href="{{ route('askservice') }}" class="btn btn-primary mt-4">Demander un service</a>
+          <a href="{{ route('askservices') }}" class="btn btn-primary mt-4">Demander un service</a>
         </div>
       </div>
 

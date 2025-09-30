@@ -6,13 +6,28 @@ use App\Models\Utilisateur;
 use App\Models\Visiteur;
 use App\Models\Service;
 use App\Models\User;
+use App\Models\Agence; 
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class ServiceController extends Controller
+
+
 {
+
+
+
+public function create()
+{
+    $agences = Agence::all();
+    return view('layout1.askservices', compact('agences'));
+}
+
+
+
+    
     public function store(Request $request)
     {
         // règles de validation (ajuste selon besoins)
@@ -25,6 +40,7 @@ class ServiceController extends Controller
             'telephone' => 'required|string|max:30',
             'libelle' => 'required|string',
             'mot_de_passe' => 'required|string|min:6|confirmed', // mot_de_passe_confirmation attendu
+            'agence_id' => 'required|exists:agences,id',
             'num_anc' => 'string|max:255',
             'piece' => 'string|max:255',
             'motif' => 'string|max:255',
@@ -50,10 +66,13 @@ class ServiceController extends Controller
                 'sexe' => $request->sexe,
                 'adresse' => $request->adresse,
                 'email' => $request->email,
-                'telephone' => $request->telephone,
+                'tel' => $request->telephone,
                 'password' => Hash::make($request->mot_de_passe),
                 'role' => 'visiteur',
-                'agence_id' => $request->agence_id ?? null,
+                'agence_id' => $request->agence_id 
+
+               
+
             ]);
 
              // 2) Création du visiteur lié à l'utilisateur
@@ -77,7 +96,7 @@ class ServiceController extends Controller
             $service = Service::create([
                 'libelle' => $request->libelle,
                 'description' => $request->description ?? "Demande de service : " . $request->libelle,
-                'etat' => 'en attente',
+                'etat' => 'en_attente',
                 'visiteur_id' => $visiteur->id,
             ]);
 

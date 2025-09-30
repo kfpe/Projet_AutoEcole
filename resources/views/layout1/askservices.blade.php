@@ -22,7 +22,17 @@
             </div>
         </div>
 
-        <form id="serviceForm" method="POST" action="{{ route('services.store') }}" enctype="multipart/form-data" class="shadow-lg p-4 rounded bg-white">
+        @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+        <form id="serviceForm"  method="POST" action="{{ route('services.store') }}" enctype="multipart/form-data" class="shadow-lg p-4 rounded bg-white">
             @csrf
 
             <!-- ÉTAPE 1 : Infos personnelles -->
@@ -123,14 +133,21 @@
                     <input type="password" class="form-control" name="mot_de_passe_confirmation" required>
                 </div>
 
-                 <div class="mb-3">
-                    <label>choisir l'agence la plus proche</label>
-                    <select class="form-control" name="moyen_paiement">
-                        <option value="">Choisir</option>
-                        <option value="orange">terminus mimboman</option>
-                        <option value="mtn">dernier poteau</option>
+                <div class="mb-3">
+                    <label>Choisir l'agence la plus proche</label>
+                    <select class="form-control" name="agence_id" required>
+                        <option value="">-- Choisir une agence --</option>
+                        @forelse($agences as $agence)
+                            <option value="{{ $agence->id }}" {{ old('agence_id') == $agence->id ? 'selected' : '' }}>
+                                {{ $agence->nom ?? 'Agence #' . $agence->id }}
+                            </option>
+                        @empty
+                            <option value="">Aucune agence disponible</option>
+                        @endforelse
                     </select>
                 </div>
+
+
 
                 <div class="text-center mt-4">
                     <button type="button" class="btn btn-secondary prevBtn px-4">Précédent</button>

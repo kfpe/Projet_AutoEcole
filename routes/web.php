@@ -85,15 +85,13 @@ Route::get('/services', function () {
     return view('layout1.services');
 })->name('services');
 
-Route::get('/askservice', function () {
-    return view('layout1.askservices');
-})->name('askservice');
 
 
 
-Route::post('/services/store', [ServiceController::class, 'store'])->name('services.store');
 
 
+Route::get('/askservices', [ServiceController::class, 'create'])->name('services.create');
+Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
 
 
 
