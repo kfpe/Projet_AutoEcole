@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('candidats', function (Blueprint $table) {
             $table->id();
-            $table->date('date_naissance');
-            $table->string('lieu_naissance', 30);
+            $table->date('date_nais');
+            $table->string('lieu_nais', 30);
             $table->string('nom_pere', 30);
             $table->string('nom_mere', 30);
             $table->enum('decision', ['admis', 'echec'])->nullable();

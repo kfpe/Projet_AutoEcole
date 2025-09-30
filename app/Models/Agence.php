@@ -15,8 +15,8 @@ class Agence extends Model
         'nom',
     ];
 
-    public function utilisateurs()
+    public function users()
     {
-        return $this->hasMany(Utilisateur::class,);
+        return $this->hasMany(User::class,);
     }
 }

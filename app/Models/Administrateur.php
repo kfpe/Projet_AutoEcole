@@ -9,12 +9,12 @@ class Administrateur extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'utilisateur_id',
+        'user_id',
     ];
 
-    public function utilisateur()
+    public function users()
     {
-        return $this->belongsTo(Utilisateur::class);
+        return $this->belongsTo(User::class);
     }
 
     public function contenus()

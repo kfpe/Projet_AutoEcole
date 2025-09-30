@@ -12,7 +12,7 @@ class ChoixCandidat extends Model
     protected $fillable = [
         // Ont ne met pas des champs fillable sur des elements qui seront des id. En realiter c'est le systeme qui est censer l'ecrire.
         'id_reponse',
-        'utilisateur_id',
+        'user_id',
     ];
 
 

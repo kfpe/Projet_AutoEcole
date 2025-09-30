@@ -8,11 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Visiteur extends Model
 {
     use HasFactory;
-    protected $fillable = ['num_permis', 'utilisateur_id'];
+    protected $fillable = ['num_permis', 'user_id', 'num_anc',
+'piece',
+'motif',
+'experiences',
+'permis',
+'certificat',
+'capacite',
+'exigences',
+'duree',
+'formalite'];
 
-    public function utilisateur(){
+    public function users(){
 
-        return $this->belongsTo(Utilisateur::class);
+        return $this->belongsTo(User::class);
     }
 
     public function services()

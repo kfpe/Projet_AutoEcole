@@ -13,12 +13,12 @@ class Moniteur extends Model
         'salaire',
         'categorie_permis',
         'cv',
-        'utilisateur_id',
+        'user_id',
     ];
 
-    public function utilisateur()
+    public function users()
     {
-        return $this->belongsTo(Utilisateur::class);
+        return $this->belongsTo(User::class);
     }
 
     public function seances()

@@ -16,13 +16,13 @@ class Candidat extends Model
         'decision',
         'photo',
         'statut',
-        'utilisateur_id',
+        'user_id',
         'formation_id',
     ];
 
-    public function utilisateur()
+    public function users()
     {
-        return $this->belongsTo(Utilisateur::class);
+        return $this->belongsTo(User::class);
     }
 
     public function formation()

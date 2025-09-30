@@ -20,9 +20,9 @@ class reponse extends Model
         return $this->belongsTo(Question::class);
     }
 
-   public function utilisateur()
+   public function users()
     {
-        return $this->belongsToMany(utilisateur::class, 'ChoixCandidat')
+        return $this->belongsToMany(User::class, 'ChoixCandidat')
          ->withTimestamps();
     }
 

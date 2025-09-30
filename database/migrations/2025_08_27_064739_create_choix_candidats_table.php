@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('choix_candidats', function (Blueprint $table) {
             $table->id();
            $table->unsignedBigInteger('reponse_id');
-            $table->foreignId('candidat_id')->constrained()->onDelete('cascade');
+            $table->foreignId('candidat_id')->constrained('candidats')->onDelete('cascade');
             $table->timestamps();
         });
     }

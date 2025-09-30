@@ -15,7 +15,7 @@ class Utilisateur extends Model
     'adresse',
     'email',
     'telephone',
-    'mot_de_passe',
+    'password',
     'role',
     'agence_id',
 ];

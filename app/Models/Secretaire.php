@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Secretaire extends Model
 {
     use HasFactory;
-     protected $fillable =[ 'utilisateur_id',
+     protected $fillable =[ 'user_id',
                             'salaire',
                             'cv',
      ];
 
-     public function utilisateur(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+     public function users(): \Illuminate\Database\Eloquent\Relations\BelongsTo
      {
-        return $this->belongsTo(Utilisateur::class);
+        return $this->belongsTo(User::class);
     }
     public function depense():\Illuminate\Database\Eloquent\Relations\HasMany
     {
