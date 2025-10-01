@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\AgenceController;
+use App\Http\Controllers\AdministrateurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +58,7 @@ Route::get('/zzz', function () {
 
 /* --------- Routes de la branche sandeu --------- */
 Route::get('/admin', function () {
-    return view('layout2/admin/admin');
+    return view('layout2/administrateurs/admin');
 });
 
 Route::get('/moniteur', function () {
@@ -85,13 +87,24 @@ Route::get('/services', function () {
     return view('layout1.services');
 })->name('services');
 
-
-
+Route::get('/askservices', function () {
+    return view('layout1.askservices');
+})->name('askservices');
 
 
 
 Route::get('/askservices', [ServiceController::class, 'create'])->name('services.create');
 Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
 
+
+Route::get('/superAdmin', function () {
+    return view('layout2.superAdmin.superAdmin');
+})->name('superAdmin');
+
+// routes pour les agences
+Route::resource('agences', AgenceController::class);
+
+// Gestion des administrateurs
+Route::resource('administrateurs', AdministrateurController::class);
 
 

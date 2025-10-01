@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('agences', function (Blueprint $table) {
            $table->id();
+            $table->string('nom', 100);
             $table->string('ville', 60);
             $table->string('quartier', 80)->nullable();
-            $table->integer('tel')->unique();
-            $table->string('nom', 100);
+            $table->string('tel', 30)->unique();
             $table->timestamps();
            
         });
