@@ -1,4 +1,4 @@
-@extends('base')
+@extends('layout2.superAdmin.dashboard')
 
 @section('title', 'Modifier agence')
 

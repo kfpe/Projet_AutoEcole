@@ -13,7 +13,9 @@ class AgenceController extends Controller
      * Display a listing of the resource.
      */
     public function index()
+
     {
+        
         $agences = Agence::orderBy('created_at', 'desc')->paginate(12);
         return view('layout2.agences.index', compact('agences'));
     }

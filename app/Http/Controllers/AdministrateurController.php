@@ -13,7 +13,12 @@ class AdministrateurController extends Controller
      * Display a listing of the resource.
      */
     public function index()
+
     {
+        
+
+        
+
          $admins = User::where('role', 'Admin')->with('agence')->latest()->get();
         return view('layout2.administrateurs.index', compact('admins'));
     }

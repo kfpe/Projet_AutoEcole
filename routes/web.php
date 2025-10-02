@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\AgenceController;
 use App\Http\Controllers\AdministrateurController;
+use App\Http\Controllers\SuperAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,6 +98,15 @@ Route::get('/askservices', [ServiceController::class, 'create'])->name('services
 Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
 
 
+
+
+
+
+Route::get('/settings', function() {
+    return view('layout2.superAdmin.settings');
+})->name('settings');
+
+
 Route::get('/superAdmin', function () {
     return view('layout2.superAdmin.superAdmin');
 })->name('superAdmin');
@@ -107,4 +117,5 @@ Route::resource('agences', AgenceController::class);
 // Gestion des administrateurs
 Route::resource('administrateurs', AdministrateurController::class);
 
+Route::get('/superAdmin', [SuperAdminController::class, 'index'])->name('superAdmin');
 
