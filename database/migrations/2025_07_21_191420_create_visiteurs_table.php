@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('visiteurs', function (Blueprint $table) {
+            $table->id();
+            $table->string('num_permis', 50)->nullable();
+            $table->string('num_anc', 50)->nullable();
+            $table->string('piece', 50)->nullable();
+            $table->string('motif', 100)->nullable();
+            $table->string('experiences', 50)->nullable();
+            $table->string('permis', 50)->nullable();
+            $table->string('certificat', 50)->nullable();
+            $table->string('capacite', 50)->nullable();
+            $table->string('exigences', 50)->nullable();
+            $table->string('duree', 50)->nullable();
+            $table->string('formalite', 100)->nullable();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('visiteurs');
+    }
+};
