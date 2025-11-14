@@ -19,13 +19,13 @@
         
         <ul class="sidebar-menu">
             <li class="menu-item">
-                <a href="#" class="menu-link active" data-page="dashboard">
+                <a href="#" class="menu-link active" data-page="">
                     <i class="fas fa-tachometer-alt"></i>
                     <span class="menu-text">Tableau de Bord</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a href="#" class="menu-link" data-page="candidates">
+                <a href="{{ route('admin.candidates.index') }}" class="menu-link" data-page="index">
                     <i class="fas fa-users"></i>
                     <span class="menu-text">Gestion Candidats</span>
                 </a>
@@ -70,7 +70,13 @@
             </div>
         </div>
 
-        <!-- Dashboard Content -->
+        <div id="contentContainer" class="page-content">
+            <div class="text-center py-5 text-muted">
+                Chargement du contenu...
+            </div>
+        </div>
+
+        <!-- Dashboard Content 
         <div id="dashboard" class="page-content active-page">
             <div class="content">
                 <div class="dashboard-stats">
@@ -204,50 +210,49 @@
             </div>
         </div>
 
-        <!-- Candidates Page -->
+        Candidates Page 
         <div id="candidates" class="page-content">
             <div class="content">
                 <h2>Gestion des Candidats</h2>
                 <p>Cette section permet de gérer tous les candidats de l'auto-école.</p>
-                <!-- Contenu de gestion des candidats -->
+                 Contenu de gestion des candidats --
             </div>
         </div>
 
-        <!-- Staff Page -->
+        <!- Staff Page --
         <div id="staff" class="page-content">
             <div class="content">
                 <h2>Gestion du Personnel</h2>
                 <p>Cette section permet de gérer le personnel de l'auto-école.</p>
-                <!-- Contenu de gestion du personnel -->
+                <!-Contenu de gestion du personnel --
             </div>
         </div>
 
-        <!-- Courses Page -->
+        <!- Courses Page --
         <div id="courses" class="page-content">
             <div class="content">
                 <h2>Gestion des Cours</h2>
                 <p>Cette section permet de gérer les cours et leçons de conduite.</p>
-                <!-- Contenu de gestion des cours -->
+              
             </div>
         </div>
 
-        <!-- Expenses Page -->
         <div id="expenses" class="page-content">
             <div class="content">
                 <h2>Gestion des Dépenses</h2>
                 <p>Cette section permet de gérer et valider les dépenses de l'auto-école.</p>
-                <!-- Contenu de gestion des dépenses -->
+              
             </div>
         </div>
 
-        <!-- Reports Page -->
+        
         <div id="reports" class="page-content">
             <div class="content">
                 <h2>Statistiques et Rapports</h2>
                 <p>Cette section présente les statistiques de réussite et autres indicateurs.</p>
-                <!-- Contenu des statistiques -->
+               
             </div>
-        </div>
+        </div>-->
     </div>
     <script src="{{ asset('js/dashboard.js') }}"></script>
     </body>

@@ -9,11 +9,14 @@
         </div>
         <ul class="nav-links" id="navbarCollapse">
             <li class="{{ request()->is('/') ? 'active' : '' }}">
-                <a href="{{ url('/') }}">Accueil</a>
+                <a href="{{ url('/') }}">
+                    <i class="fas fa-home"></i> Accueil
+                </a>
             </li>
             <li class="{{ request()->is('services', 'askservice') ? 'active' : '' }}">
-                <a href="{{ route('services') }}">services</a>
-
+                <a href="{{ route('services') }}">
+                    <i class="fas fa-cogs"></i> Services
+                </a>
             </li>
             @auth
                 <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
@@ -35,14 +38,16 @@
                         <li>
                             <form method="POST" action="">
                                 @csrf
-                                <button type="submit" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Déconnexion</button>
+                                <button type="submit" class="dropdown-item">
+                                    <i class="fas fa-sign-out-alt"></i> Déconnexion
+                                </button>
                             </form>
                         </li>
                     </ul>
                 </li>
             @else
-                <li><a href="{{ route('login') }}">Connexion</a></li>
-                <li><a href="{{ route('login') }}">Inscription</a></li>
+                <li><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Connexion</a></li>
+                <li><a href="{{ route('register') }}"><i class="fas fa-user-plus"></i> Inscription</a></li>
             @endauth
         </ul>
     </div>

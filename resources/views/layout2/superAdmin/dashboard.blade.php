@@ -12,25 +12,29 @@
             --main-color: #002f6c;
             --secondary: #004080;
             --hover-color: #0056a6;
+            --light-bg: #f4f6f9;
         }
 
-        body {
-            background: #f4f6f9;
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: var(--light-bg);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         /* --- SIDEBAR --- */
         .sidebar {
-             height: 100vh;
-        width: 240px;
-        background: linear-gradient(180deg, var(--main-color), var(--secondary));
-        color: #fff;
-        position: fixed;
-        top: 0;
-        
-        padding-top: 1rem;
-        transition: all 0.3s ease-in-out;
-        z-index: 1050; /* au-dessus du contenu */
+            height: 100vh;
+            width: 240px;
+            background: linear-gradient(180deg, var(--main-color), var(--secondary));
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 80px; /* espace pour le header fixe */
+            transition: all 0.3s ease-in-out;
+            z-index: 1060;
         }
 
         .sidebar h4 {
@@ -62,50 +66,32 @@
             font-weight: bold;
         }
 
-        /* Séparateur de section */
         .menu-separator {
             border-top: 1px solid rgba(255, 255, 255, 0.3);
             margin: 10px 0;
         }
 
-        /* --- CONTENT --- */
-        .content {
-            margin-left: 240px;
-            padding: 20px;
-            transition: all 0.3s ease-in-out;
-        }
-
-
-
-        /* --- OVERLAY --- */
-    .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.5);
-        z-index: 1040;
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    .overlay.active {
-        display: block;
-    }
-
-        /* --- HEADER --- */
+        /* --- HEADER FIXE --- */
         .main-header {
+            position: fixed;
+            top: 0;
+            left: 240px;
+            right: 0;
             background: #fff;
-            border-radius: 12px;
-            padding: 15px 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            animation: fadeDown 0.6s ease-in-out;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            z-index: 1050;
+            transition: all 0.3s ease-in-out;
         }
 
         .main-header h5 {
             font-weight: 600;
             color: var(--main-color);
+            margin: 0;
         }
 
         .main-header img {
@@ -116,63 +102,120 @@
             transform: rotate(10deg) scale(1.1);
         }
 
-        /* Animation header */
-        @keyframes fadeDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* --- CONTENT --- */
+        .content {
+            margin-left: 240px;
+            padding: 100px 20px 80px 20px; /* espace sous le header et au-dessus du footer */
+            transition: all 0.3s ease-in-out;
         }
 
-        /* Responsive */
-        @media(max-width:768px) {
-            .sidebar { left: -240px; position: absolute; }
-            .sidebar.active { left: 0; }
-            .content { margin-left: 0; }
+        /* --- FOOTER FIXE --- */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 240px;
+            width: calc(100% - 240px);
+            background: #fff;
+            color: var(--main-color);
+            text-align: center;
+            padding: 12px 10px;
+            font-size: 0.9rem;
+            box-shadow: 0 -3px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease-in-out;
+            z-index: 1030;
+        }
+
+        /* --- OVERLAY --- */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1040;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media(max-width: 768px) {
+            .sidebar {
+                left: -240px;
+                position: absolute;
+                padding-top: 70px;
+            }
+
+            .sidebar.active {
+                left: 0;
+            }
+
+            .main-header {
+                left: 0;
+                width: 100%;
+            }
+
+            .content {
+                margin-left: 0;
+                padding: 90px 15px 80px 15px;
+            }
+
+            footer {
+                left: 0;
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
+
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <h4 class="text-center text-white mb-4">Super Admin</h4>
         <ul class="nav flex-column px-2">
-             <div class="menu-separator"></div>
+            <div class="menu-separator"></div>
             <li><a href="{{ route('superAdmin') }}" class="nav-link {{ request()->routeIs('superAdmin') ? 'active' : '' }}"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
             <li><a href="{{ route('agences.index') }}" class="nav-link {{ request()->routeIs('agences.*') ? 'active' : '' }}"><i class="bi bi-building"></i> Agences</a></li>
             <li><a href="{{ route('administrateurs.index') }}" class="nav-link {{ request()->routeIs('administrateurs.*') ? 'active' : '' }}"><i class="bi bi-person-gear"></i> Administrateurs</a></li>
             <div class="menu-separator"></div>
-            <li><a href="{{ route('settings') }}" class="nav-link {{ request()->routeIs('settings') ? 'active' : '' }}"><i class="bi bi-gear"></i> Paramètres</a></li>
-            <li><a href="{{ route('settings') }}" class="nav-link {{ request()->routeIs('settings') ? 'active' : '' }}"><i class="bi bi-gear"></i> Se deconnecter</a></li>
+            <li><a href="{{ route('settings') }}" class="nav-link"><i class="bi bi-gear"></i> Paramètres</a></li>
+            <li><a href="{{ route('logout') }}" class="nav-link text-danger"><i class="bi bi-box-arrow-right"></i> Déconnexion</a></li>
         </ul>
     </div>
 
-
     <!-- Overlay -->
     <div class="overlay" id="overlay"></div>
+
+    <!-- Header -->
+    <div class="main-header">
+        <button id="menu-toggle" class="btn btn-outline-primary d-md-none"><i class="bi bi-list"></i></button>
+        <h5>👋 Bienvenue, {{ Auth::user()->name ?? 'Admin' }}</h5>
+        <div class="d-flex align-items-center">
+            <i class="bi bi-bell fs-5 me-3 text-secondary position-relative">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    3
+                </span>
+            </i>
+            <img src="https://i.pravatar.cc/40" class="rounded-circle border border-2" width="40" height="40" alt="profil">
+        </div>
+    </div>
+
     <!-- Content -->
     <div class="content">
-        <!-- Header -->
-        <div class="d-flex justify-content-between align-items-center mb-4 main-header">
-            <button id="menu-toggle" class="btn btn-outline-primary d-md-none"><i class="bi bi-list"></i></button>
-            <h5 class="m-0">👋 Bienvenue, {{ Auth::user()->name ?? 'Admin' }}</h5>
-            <div class="d-flex align-items-center">
-                <i class="bi bi-bell fs-5 me-3 text-secondary position-relative">
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        3
-                    </span>
-                </i>
-                <img src="https://i.pravatar.cc/40" class="rounded-circle border border-2" width="40" height="40" alt="profil">
-            </div>
-        </div>
-
-        <!-- Ici s'injecte le contenu -->
         @yield('content')
     </div>
 
+    <!-- Footer -->
+    <footer>
+        © 2025 Super Admin Dashboard — Développé avec ❤️ par <strong>TonNom</strong>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        
-
-        
         const sidebar = document.getElementById("sidebar");
         const overlay = document.getElementById("overlay");
         const toggleBtn = document.getElementById("menu-toggle");
@@ -182,12 +225,10 @@
             overlay.classList.toggle("active");
         });
 
-        // Fermeture en cliquant sur overlay
         overlay.addEventListener("click", () => {
             sidebar.classList.remove("active");
             overlay.classList.remove("active");
         });
-    
     </script>
 </body>
 </html>

@@ -7,6 +7,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\AgenceController;
 use App\Http\Controllers\AdministrateurController;
 use App\Http\Controllers\SuperAdminController;
+use App\Models\Agence;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,9 +59,7 @@ Route::get('/zzz', function () {
 });
 
 /* --------- Routes de la branche sandeu --------- */
-Route::get('/admin', function () {
-    return view('layout2/administrateurs/admin');
-});
+
 
 Route::get('/moniteur', function () {
     return view('layout3/moniteur/moniteur');
@@ -88,13 +87,14 @@ Route::get('/services', function () {
     return view('layout1.services');
 })->name('services');
 
+
+
 Route::get('/askservices', function () {
-    return view('layout1.askservices');
+    $agences = Agence::all();
+    return view('layout1.askservices', compact('agences'));
 })->name('askservices');
 
 
-
-Route::get('/askservices', [ServiceController::class, 'create'])->name('services.create');
 Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
 
 
@@ -119,3 +119,20 @@ Route::resource('administrateurs', AdministrateurController::class);
 
 Route::get('/superAdmin', [SuperAdminController::class, 'index'])->name('superAdmin');
 
+
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/', function () {
+        return view('layout2.administrateurs.admin');
+    })->name('admin.dashboard');
+
+    // Route de la page d'accueil du dashboard
+    Route::get('/home', function () {
+        return view('layout2.administrateurs.dashboard_home');
+    })->name('admin.home');
+
+    // Routes pour les candidats
+    Route::get('/candidates', [CandidatController::class, 'index'])->name('admin.candidates.index');
+    Route::get('/candidates/create', [CandidatController::class, 'create'])->name('admin.candidates.create');
+});

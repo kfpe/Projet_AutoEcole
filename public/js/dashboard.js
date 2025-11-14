@@ -1,26 +1,50 @@
-document.querySelectorAll('.menu-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Retirer la classe active de tous les liens
-                document.querySelectorAll('.menu-link').forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                // Ajouter la classe active au lien cliqué
-                this.classList.add('active');
-                
-                // Masquer toutes les pages
-                document.querySelectorAll('.page-content').forEach(page => {
-                    page.classList.remove('active-page');
-                });
-                
-                // Afficher la page correspondante
-                const pageId = this.getAttribute('data-page');
-                document.getElementById(pageId).classList.add('active-page');
-                
-                // Mettre à jour le titre de l'en-tête
-                const pageTitle = this.querySelector('.menu-text').textContent;
-                document.querySelector('.header-title').textContent = pageTitle;
+document.addEventListener("DOMContentLoaded", function () {
+    const menuLinks = document.querySelectorAll(".menu-link");
+    const contentContainer = document.getElementById("contentContainer");
+    const pageTitle = document.getElementById("pageTitle");
+
+    // Fonction pour charger une page via Laravel
+    function loadPage(page) {
+        contentContainer.innerHTML = "<div class='text-center py-5 text-muted'>Chargement...</div>";
+
+        // Correspondance entre les pages du menu et les vraies routes Laravel
+        const routes = {
+            dashboard_home: '/admin/home',
+            candidates: '/admin/candidates',
+        };
+
+        fetch(routes[page])
+            .then(response => {
+                if (!response.ok) throw new Error("Erreur serveur");
+                return response.text();
+            })
+            .then(html => {
+                contentContainer.innerHTML = html;
+
+                // Met à jour le titre en haut de page
+                const activeMenu = document.querySelector(`[data-page="${page}"] .menu-text`);
+                if (activeMenu && pageTitle) {
+                    pageTitle.textContent = activeMenu.textContent;
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+                contentContainer.innerHTML = "<div class='alert alert-danger text-center'>Erreur de chargement</div>";
             });
+    }
+
+    // Activation des liens du menu
+    menuLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            menuLinks.forEach(l => l.classList.remove("active"));
+            link.classList.add("active");
+
+            const page = link.getAttribute("data-page");
+            loadPage(page);
         });
+    });
+
+    // Charger la page d’accueil par défaut
+    loadPage("dashboard_home");
+});
